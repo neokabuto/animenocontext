@@ -17,8 +17,8 @@ var lastNew = "";
 var currentSource = "";
 var timer = null;
 var loadedPosts = [];
-var guesstime = 1;
-var revealtime = 1;
+var guesstime = 25;
+var revealtime = 7;
 
 function loadImages(){
 	loadedPosts = [];
@@ -26,9 +26,9 @@ function loadImages(){
 	var jsonURL = "";
 	
 	if(lastNew == ""){
-		jsonURL = "http://www.reddit.com/r/animenocontext/new.json?limit=10&jsonp=?";
+		jsonURL = "http://www.reddit.com/r/animenocontext/new.json?limit=100&jsonp=?";
 	} else {
-		jsonURL = "http://www.reddit.com/r/animenocontext/new.json?limit=10&before=" + lastNew + "&jsonp=?";
+		jsonURL = "http://www.reddit.com/r/animenocontext/new.json?limit=100&before=" + lastNew + "&jsonp=?";
 	}
 
 	$.getJSON(jsonURL,

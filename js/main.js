@@ -14,7 +14,7 @@ $(function() {
 	
 });
 
-var lastNew = "";
+var lastNew = getCookie("lastSeen");
 var currentSource = "";
 var timer = null;
 var loadedPosts = [];
@@ -29,7 +29,7 @@ function loadImages(){
 	if(lastNew == ""){
 		jsonURL = "http://www.reddit.com/r/animenocontext/new.json?limit=100&jsonp=?";
 	} else {
-		jsonURL = "http://www.reddit.com/r/animenocontext/new.json?limit=100&before=" + lastNew + "&jsonp=?";
+		jsonURL = "http://www.reddit.com/r/animenocontext/new.json?limit=100&after=" + lastNew + "&jsonp=?";
 	}
 
 	$.getJSON(jsonURL,
@@ -60,6 +60,8 @@ function nextImage(){
 	if(loadedPosts.length == 0){
 		loadImages();
 	} else {
+		setCookie("lastSeen", loadedPosts[0].data.name);
+		
 		$("#picturebox").css("background-image", "url(" + loadedPosts[0].data.url + ")");
 		$("#redditlink").attr("href", "http://www.reddit.com" + loadedPosts[0].data.permalink);
 			
@@ -109,3 +111,21 @@ function revealImage(){
     }});
 }
 
+function setCookie(name, value){
+	//expires in a week
+	var date = new Date();
+	date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
+	
+    document.cookie = name + "=" + escape(value) + "; expires="+date.toGMTString();
+}
+
+function getCookie(name){
+	var value = "; " + document.cookie;
+	var parts = value.split("; " + name + "=");
+	
+	if (parts.length == 2) {
+		return parts.pop().split(";").shift();
+	} else {
+		return "";
+	}
+}

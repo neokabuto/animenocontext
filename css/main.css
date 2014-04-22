@@ -8,9 +8,11 @@ textarea {
     color: #222;
 }
 
-html {
+html , body {
     font-size: 1em;
     line-height: 1.4;
+	width: 100%;
+	height: 100%; 
 }
 
 ::-moz-selection {
@@ -61,15 +63,139 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+header {
+	width: 100%;
+	height: 100px;
+	background: #CAA;
+}
+
+header p {
+	margin: 0;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	padding-top: 35px;
+	color: #EEE;
+	font-size: 40px;
+	text-align: right;
+	text-shadow: 1px 2px 8px rgba(150, 150, 150, 1);
+}
 
 
+footer {
+	position:absolute;
+	bottom:0;
+	width: 100%;
+	height: 60px;
+	background: #A99;
+}
 
+footer p {
+	margin: 0;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	padding-top: 60px;
+	color: #EEE;
+	font-size: 45px;
+	text-align: right;
+	text-shadow: 1px 2px 8px rgba(150, 150, 150, 1);
+}
 
+div#main {
+	width: 100%;
+	background: white;
+}
 
+div#picturebox {
+    position: absolute;
+	width: 100%;
+	background: white;
+	height: auto;
+	top: 100px;
+	bottom: 60px;
+	background-repeat:no-repeat;
+	background-size:auto 100%;
+	background-position: center top;
+}
 
+div#wrapper {
+	min-height: 100%;
+	height:     100%;
+	margin-bottom: -60px;
+}
 
+#optionsbutton {
+	float: left;
+	position: relative;
+	top: 25px;
+	left: 45px;
+	font-size: 35px;
+	color: #777;
+	transition: all 0.25s linear;
+}
 
+#optionsbutton i {
+	transition: all 0.25s linear;
+}
 
+#optionsbutton :hover{
+	text-shadow: 1px 1px 7px rgba(150, 150, 150, 1);
+}
+
+#options {
+	padding: 10px;
+	background: #EEE;
+}
+
+.start {
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.startbutton {
+	margin: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	-moz-box-shadow:inset 0px 1px 0px 0px #a6eb9b;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #a6eb9b;
+	box-shadow:inset 0px 1px 0px 0px #a6eb9b;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5acc2d), color-stop(1, #569e1b) );
+	background:-moz-linear-gradient( center top, #5acc2d 5%, #569e1b 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5acc2d', endColorstr='#569e1b');
+	background-color:#5acc2d;
+	-webkit-border-radius:21px;
+	-moz-border-radius:21px;
+	border-radius:21px;
+	text-indent:0;
+	border:2px solid #83c41a;
+	display: block;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:23px;
+	font-weight:bold;
+	font-style:normal;
+	height:50px;
+	line-height:50px;
+	width:165px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #689324;
+}
+.startbutton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #569e1b), color-stop(1, #5acc2d) );
+	background:-moz-linear-gradient( center top, #569e1b 5%, #5acc2d 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#569e1b', endColorstr='#5acc2d');
+	background-color:#569e1b;
+}
+.startbutton:active {
+	position:relative;
+	top:1px;
+}
 
 
 

@@ -3,6 +3,7 @@ $(function() {
 		//start game
 		$("div#start").hide();
 		$("div#picturebox").show();
+		$("#timer").attr("data-timer", guesstime);
 		
 		nextImage();
 	});
@@ -18,7 +19,7 @@ var currentSource = "";
 var timer = null;
 var loadedPosts = [];
 var guesstime = 25;
-var revealtime = 7;
+var revealtime = 14;
 
 function loadImages(){
 	loadedPosts = [];
@@ -50,7 +51,6 @@ function loadImages(){
 				});
 			}
 			});
-		  
 			nextImage();
 		});
 }
@@ -65,7 +65,10 @@ function nextImage(){
 			
 		//start timer
 		timer = setTimeout(timeout, guesstime * 1000);
+		$("#timer").TimeCircles().stop();
 		$("#timer").TimeCircles().destroy();
+		$("#timer").remove();
+		$("#picturebox").append("<div id=\"timer\"></div>");
 		$("#timer").attr("data-timer", guesstime);
 		$("#timer").TimeCircles({count_past_zero: false,total_duration: guesstime,time: {
         Days: { show: false },
@@ -90,9 +93,13 @@ function revealImage(){
 
 	timer = setTimeout(function() {
 	loadedPosts.shift();
+	
 	nextImage();
 	}, revealtime * 1000);
+	$("#timer").TimeCircles().stop();
 	$("#timer").TimeCircles().destroy();
+	$("#timer").remove();
+	$("#picturebox").append("<div id=\"timer\"></div>");
 	$("#timer").attr("data-timer", revealtime);
 	$("#timer").TimeCircles({count_past_zero: false,total_duration: revealtime,time: {
         Days: { show: false },
